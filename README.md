@@ -1,11 +1,24 @@
-#### Installation
+## Installation
 For now – use `sha` + `deps`:
 https://clojure.org/guides/deps_and_cli#_using_git_libraries
 
-#### What
+```clojure
+;; deps.edn
+{:deps {github-akovantsev/hiccup-layers 
+        {:git/url "https://github.com/akovantsev/hiccup-layers"
+         :sha     "f7785b258d0b0cb805d210daaf5e151b032be5b6"}}}
+```
+
+```clojure
+(ns my.cljs.ns
+ (:require
+   [com.akovantsev.hiccup-layers.core :as layers :refer-macros [layers]]))
+```
+
+## What
 A macro to apply patches and transformations to hiccup forms.
 
-#### Why
+## Why
 HTML is all about semantics!
 ```clojure
 [:button {:onClick submit!} "submit"]
@@ -24,7 +37,7 @@ This is good for code locality.
 You look at that one `:padding-bottom` now occupying half a button, say "ugh" and move on.
 What the next day will bring you? Colors? Round corners? Shadows!
 
-Things get ugly and unreadable very fast.
+Things rapidly get ugly and unreadable.
 Much of the ugliness is just a matter of taste. 
 You press a hotkey to vertical align values in maps to win some legibility back.
 
@@ -66,7 +79,7 @@ That is better solution, but:
 
 This kind of debug sessions is not fun at all.
 
-#### Remedy
+## Remedy
 To alleviate the pain, consider `layers` macro, which delivers on visual promise of neat stackoverflow answers and more!
 
 It helps you:
@@ -132,7 +145,7 @@ It helps you:
    [:p {} "Once upon a midnight dreary..."]]]]
 ``` 
 
-#### Usage
+## Usage
  
 ```clojure
 (layers shape
@@ -205,7 +218,7 @@ and, hopefully, self-explanatory:
 - `:prepend-sibling (:cons-sibling)`
 - `:append-sibling  (:conj-sibling)`
 
-#### warnings
+## Warnings
 
 `!warning` atom gets `reset!` every time `layers` detects:
 - unused form id in patch
