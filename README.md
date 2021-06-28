@@ -42,7 +42,7 @@ Much of the ugliness is just a matter of taste.
 You press a hotkey to vertical align values in maps to win some legibility back.
 
 Those are all cosmetics, and are mostly independent from each other.
-So the only bad thing is how far button label is pushed away from `:button` tag.
+So the only bad thing is how far button label is pushed away from `:button` tag. Is it even inside the button or a next sibling now?
 ```clojure
 [:button {:key     "submit"
           :onClick submit!
